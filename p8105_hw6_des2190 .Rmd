@@ -78,7 +78,9 @@ weath_3 = weather_df %>%
     beta_0 = `(Intercept)`,
     beta_1 = tmin) %>%
   mutate(
-  log = ln(beta_0 * beta_1))
+  log = log((beta_0 * beta_1))) %>%
+  ggplot(aes(x = r.squared)) + geom_density() %>%
+  ggplot(aes(x = log)) + geom_density()
 
 ```
 
